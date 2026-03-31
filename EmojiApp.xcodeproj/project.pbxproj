@@ -1,0 +1,3 @@
+// Placeholder Xcode project file.
+// Generate or replace this file on macOS with Xcode before the first device build.
+// The source tree under EmojiApp/ is the authoritative skeleton created in this environment.
