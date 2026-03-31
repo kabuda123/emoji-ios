@@ -1,28 +1,33 @@
 import SwiftUI
 
 struct AppRootView: View {
+    @EnvironmentObject private var environment: AppEnvironment
+
     var body: some View {
         TabView {
             NavigationStack {
                 TemplateListView()
             }
             .tabItem {
-                Label("模板", systemImage: "sparkles")
+                Label("Templates", systemImage: "sparkles")
             }
 
             NavigationStack {
                 HistoryView()
             }
             .tabItem {
-                Label("历史", systemImage: "clock.arrow.circlepath")
+                Label("History", systemImage: "clock.arrow.circlepath")
             }
 
             NavigationStack {
                 SettingsView()
             }
             .tabItem {
-                Label("设置", systemImage: "gearshape")
+                Label("Settings", systemImage: "gearshape")
             }
+        }
+        .task {
+            await environment.loadBootstrapIfNeeded()
         }
     }
 }
